@@ -232,7 +232,7 @@ public class BinarySearchTree {
 		String str = new String();
 		
 		
-	while(s.equalsIgnoreCase("n") == false)
+	while(s.equalsIgnoreCase("n")||s.equalsIgnoreCase("no") == false)
 	{	
 		System.out.println("LINKED LIST");
 		System.out.println("PRESS 1 TO INSERT");
