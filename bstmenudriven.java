@@ -12,7 +12,6 @@ class Node
 		right = null;
 	}
 }
-
 public class BinarySearchTree {
 
 	static Node root;
@@ -36,9 +35,7 @@ public class BinarySearchTree {
 		else
 		{
 			if(data < root.data)
-				root.left = insertitem(root.left,data);
-			
-				
+				root.left = insertitem(root.left,data);	
 			else if(data > root.data)	
 				root.right = insertitem(root.right,data);	
 		}
@@ -207,6 +204,26 @@ public class BinarySearchTree {
 			Level(root.right,data);
 		}
 	}
+	public static void levelOrderPrintBFS(Node root1)
+	{
+		if(root1==null)
+			return;
+		Queue<Node> q=new LinkedList<>();
+		q.add(root1);
+		while(!q.isEmpty())
+		{
+			Node current = q.poll();
+			System.out.println(current.data);
+			if(current.left!=null)
+			{
+				q.add(current.left);
+			}
+			if(current.right!=null)
+			{
+				q.add(current.right);
+			}
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BinarySearchTree bst = new BinarySearchTree();
@@ -280,7 +297,7 @@ public class BinarySearchTree {
 					System.out.println("Press 1 to display preorder");
 					System.out.println("Press 2 to display inorder");
 					System.out.println("Press 3 to display postorder");
-					
+					System.out.println("Press 4 to display Levelorder");
 					op1 = S.nextInt();
 					
 					if(op1 == 1)
@@ -294,6 +311,10 @@ public class BinarySearchTree {
 					else if(op1 == 3)
 					{
 						postorder(root);
+					}
+					else if(op1 == 4)
+					{
+						levelOrderPrintBFS(root);
 					}
 					else
 						System.out.println("Invalid Input!");
